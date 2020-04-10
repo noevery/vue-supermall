@@ -11,7 +11,7 @@ export default {
   name: "TabBarItems",
   props: {
     path: String,
-    activeColor: {
+    color: {
       type: String,
       default: "red"
     }
@@ -21,7 +21,7 @@ export default {
       return this.$route.path.indexOf(this.path) !== -1;
     },
     activeStyle() {
-      return this.isActive ? { color: this.activeColor } : {};
+      return this.isActive ? { color: this.color } : {};
     }
   },
   methods: {
@@ -38,8 +38,10 @@ export default {
   height: 49px;
   text-align: center;
   flex: 1;
+  font-size: 14px;
 }
 .tab-bar-items img {
+  margin-top: 3px;
   width: 24px;
 }
 </style>

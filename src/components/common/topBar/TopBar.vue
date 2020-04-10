@@ -14,6 +14,7 @@ export default {
 
 <style scoped>
 .top-bar {
+  position: relative;
   display: flex;
   height: 44px;
 }

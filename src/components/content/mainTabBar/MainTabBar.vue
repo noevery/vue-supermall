@@ -1,7 +1,7 @@
 <template>
   <div id="main-tab-bar">
     <tab-bar>
-      <tab-bar-items path="/home">
+      <tab-bar-items path="/home" color="deeppink">
         <img slot="img" src="~assets/img/tabbar/home.svg" alt="" />
         <img
           slot="img-active"
@@ -10,7 +10,7 @@
         />
         <div slot="text">首页</div>
       </tab-bar-items>
-      <tab-bar-items path="/category">
+      <tab-bar-items path="/category" color="deeppink">
         <img slot="img" src="~assets/img/tabbar/category.svg" alt="" />
         <img
           slot="img-active"
@@ -19,7 +19,7 @@
         />
         <div slot="text">分类</div>
       </tab-bar-items>
-      <tab-bar-items path="shopcart">
+      <tab-bar-items path="shopcart" color="deeppink" >
         <img slot="img" src="~assets/img/tabbar/shopcart.svg" alt="" />
         <img
           slot="img-active"
@@ -28,7 +28,7 @@
         />
         <div slot="text">购物车</div>
       </tab-bar-items>
-      <tab-bar-items path="profile">
+      <tab-bar-items path="profile" color="deeppink">
         <img slot="img" src="~assets/img/tabbar/profile.svg" alt="" />
         <img
           slot="img-active"
