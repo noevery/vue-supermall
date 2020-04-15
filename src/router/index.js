@@ -5,17 +5,20 @@ const Home = () => import("../views/home/Home");
 const Category = () => import("../views/category/Category");
 const ShopCart = () => import("../views/shopCart/ShopCart");
 const Profile = () => import("../views/profile/Profile");
+const Detail = () => import("../views/detail/Detail");
+
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "",
     redirect: "/home"
   },
   {
     path: "/home",
-    component: Home
+    component: Home,
+    keepAlive: true
   },
   {
     path: "/category",
@@ -28,6 +31,10 @@ const routes = [
   {
     path: "/profile",
     component: Profile
+  },
+  {
+    path: "/detail/:iid",
+    component: Detail
   }
 ];
 

@@ -34,10 +34,12 @@ import GoodsList from 'components/content/goods/GoodsList'
 import Scroll from 'components/common/scroll/Scroll'
 import BackTop from 'components/common/backTop/BackTop'
 
+//混入
+import {newRefreshMixin} from "common/mixin";
 //网络请求
 import { getHomeMultidata, getHomeGood } from "network/home.js";
-//方法请求
-import { debounce } from 'common/utils'
+
+
 export default {
   name: "Home",
   components: {
@@ -50,9 +52,8 @@ export default {
     GoodsList,
     BackTop
   },
-
+  mixins: [newRefreshMixin],
   data() {
-
     return {
       banner: [],
       recommend: [],
@@ -62,10 +63,10 @@ export default {
         'sell': {page: 0, list: []}
       },
       currentGoods: 'pop',
-      newRefresh: null,
       isShowTab: false,
       tabContralTopHeight: 0,
-      isBackTop: false
+      isBackTop: false,
+      scrollTopY: 0
     };
   },
 
@@ -76,18 +77,18 @@ export default {
   },
 
   created() {
-
     //网络请求
    this.getHomeMultidata();
    this.getHomeGood('pop');
    this.getHomeGood('new');
    this.getHomeGood('sell');
   },
-  mounted() {
-    this.newRefresh = debounce(this.$refs.scroll.refresh, 500)
-    this.$bus.$on('imgLoad', () => {
-      this.newRefresh();
-    })
+  activated() {
+    this.$refs.scroll.scrollTo(0, this.scrollTopY);
+    this.newRefresh();
+  },
+  deactivated() {
+    this.scrollTopY = this.$refs.scroll.scroll.y;
   },
   methods: {
 

@@ -34,15 +34,15 @@
         click: true,
         pullUpLoad: this.pullUpLoad,
         probeType: this.probeType
-      })
+      });
     //  上拉加载更多
       this.scroll.on('pullingUp', () => {
         this.$emit('pullingUp')
-      })
-    //  滚动检测距离
-    this.scroll.on('scroll', (position) => {
-      this.$emit('scroll', position)
-    })
+      });
+     //  滚动检测距离
+      this.scroll.on('scroll', (position) => {
+        this.$emit('scroll', position);
+       })
     },
     methods: {
       finishPullUp() {

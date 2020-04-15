@@ -17,12 +17,11 @@ export default {
   position: relative;
   display: flex;
   height: 44px;
-}
-div {
-  height: 100%;
-  flex: 1;
   line-height: 44px;
   text-align: center;
+}
+.center {
+  flex: 1;
 }
 
 .right,
